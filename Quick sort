@@ -1,0 +1,8 @@
+Public Sub quicksort(A() As String, lo As Integer, hi As Integer)
+    Dim p As Integer
+    If lo < hi Then
+        p = partition(A(), lo, hi) 'need partition function
+        Call quicksort(A(), lo, p - 1)
+        Call quicksort(A(), p + 1, hi)
+    End If
+End Sub
