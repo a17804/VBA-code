@@ -1,0 +1,10 @@
+function iseven(x As Double) 'returns true for even, false for odd
+'WARNING: this will return false for all non-integers
+    Dim y As Double
+    y = x - (2 * Fix(x / 2))
+    If y = 0 Then
+        iseven = True
+    Else
+        iseven = False
+    End If
+End function
