@@ -1,0 +1,15 @@
+Sub bubble_sort(a() As Double) 'takes and array and sorts it, no output, only works with doubles... i gues if you used strcmp() it could work with variants?
+Dim swap As Boolean, temp As Double, u As Integer
+u = UBound(a())
+Do
+    swap = False
+    For i = 1 To u
+        If a(i - 1) > a(i) Then
+            temp = a(i - 1)
+            a(i - 1) = a(i)
+            a(i) = temp
+            swap = True
+        End If
+    Next i
+Loop Until swap = False
+End Sub
