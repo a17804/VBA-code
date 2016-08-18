@@ -1,0 +1,30 @@
+Sub DVA()
+'will perform dual value analysis on a dataset in a column
+'NOTE that the user defined function iseven() is required
+Dim r As Integer, pts As Integer, co As Integer, cn As Integer
+Dim dl As Double, a As Double
+a = 1 'even/odd counter, must be double based on required input for iseven()
+dl = InputBox("Enter detection limit", "Hello There")
+r = InputBox("Enter row number that data starts in", "Hello Again")
+co = InputBox("Enter column number that data is currently in", "A=1, B=2, etc.")
+cn = InputBox("Enter column number that you want the new data in", "A=1, B=2, etc.")
+pts = InputBox("Enter the number of data points", "Goodbye")
+
+For i = 1 To pts Step 1
+        Select Case Cells(r, co) = dl
+            Case True
+                Select Case iseven(a) 'user defined fucntion
+                    Case True
+                        Cells(r, cn) = dl / 2 'could change from dl/2 to 0
+                    Case False
+                        Cells(r, cn) = Cells(r, co)
+                    End Select
+                a = a + 1
+            Case False
+                Cells(r, cn) = Cells(r, co)
+        End Select
+        r = r + 1
+Next i
+
+End Sub
+
